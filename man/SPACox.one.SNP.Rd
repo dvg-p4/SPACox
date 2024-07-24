@@ -16,7 +16,8 @@ SPACox.one.SNP(
 )
 }
 \arguments{
-\item{g}{a numeric genotype vector. Missing genotype should be coded as NA. Both hard-called and imputed genotype data are supported.}
+\item{g}{a numeric genotype vector. Missing genotype should be coded as NA. Both hard-called and imputed genotype
+data are supported. NOTE that we do not check subject order in this one-snp-version!!!}
 
 \item{obj.null}{an R object returned from function SPACox_Null_Model()}
 

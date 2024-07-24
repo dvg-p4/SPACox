@@ -100,7 +100,8 @@ SPACox.res = SPACox(obj.null, Geno.mtx)
 # we recommand using column of 'p.value.spa' to associate genotype with time-to-event phenotypes
 head(SPACox.res)
 
-## missing data in response/indicator variables is also supported. Please do not remove pIDs of subjects with missing data, the program will do it.
+## missing data in response/indicator variables is also supported. Please do not remove pIDs of
+## subjects with missing data, the program will do it.
 Phen.mtx$event[2] = NA
 Phen.mtx$Cov1[5] = NA
 obj.null = SPACox_Null_Model(Surv(time,event)~Cov1+Cov2, data=Phen.mtx,

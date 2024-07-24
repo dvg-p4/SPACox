@@ -156,7 +156,8 @@ SPACox_Null_Model = function(formula,
 #' # we recommand using column of 'p.value.spa' to associate genotype with time-to-event phenotypes
 #' head(SPACox.res)
 #'
-#' ## missing data in response/indicator variables is also supported. Please do not remove pIDs of subjects with missing data, the program will do it.
+#' ## missing data in response/indicator variables is also supported. Please do not remove pIDs of
+#' ## subjects with missing data, the program will do it.
 #' Phen.mtx$event[2] = NA
 #' Phen.mtx$Cov1[5] = NA
 #' obj.null = SPACox_Null_Model(Surv(time,event)~Cov1+Cov2, data=Phen.mtx,
@@ -222,7 +223,8 @@ SPACox = function(obj.null,
 #' SaddlePoint Approximation implementation of Cox regression surival analysis (One-SNP-version)
 #'
 #' One-SNP-version SPACox function. This function is to facilitate users that prefer reading and analyzing genotype line-by-line.
-#' @param g a numeric genotype vector. Missing genotype should be coded as NA. Both hard-called and imputed genotype data are supported.
+#' @param g a numeric genotype vector. Missing genotype should be coded as NA. Both hard-called and imputed genotype
+#'   data are supported. NOTE that we do not check subject order in this one-snp-version!!!
 #' @inheritParams SPACox
 #' @inherit SPACox return
 #' @export
