@@ -13,6 +13,7 @@
 #' # Please check help(SPACox) for a simulated example.
 #' @export
 #' @import survival
+#' @import stats
 SPACox_Null_Model = function(formula,
                              data=NULL,
                              pIDs=NULL,
@@ -429,7 +430,7 @@ check_input = function(pIDs, gIDs, obj.coxph, range)
 
 check_input1 = function(obj.null, Geno.mtx, par.list)
 {
-  if(class(obj.null)!="SPACox_NULL_Model")
+  if(!inherits(obj.null, "SPACox_NULL_Model"))
     stop("obj.null should be a returned outcome from SPACox_Null_Model()")
 
   if(any(obj.null$gIDs != rownames(Geno.mtx))) stop("gIDs should be the same as rownames(Geno.mtx).")

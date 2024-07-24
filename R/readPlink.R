@@ -60,6 +60,7 @@
 #' @export
 #' @import seqminer
 #' @import data.table
+#' @import utils
 SPACox.plink = function(obj.null,
                         plink.file,
                         output.file,
