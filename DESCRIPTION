@@ -1,7 +1,7 @@
 Package: SPACox
 Type: Package
 Title: SaddlePoint Approximation implementation of survival analysis
-Version: 0.1.2
+Version: 0.1.3
 Published: 2020-07-26
 Author: Wenjian Bi, Shawn (Seunggeun) Lee, Sehee Kim
 Maintainer: Wenjian Bi <wenjianb@umich.edu>
