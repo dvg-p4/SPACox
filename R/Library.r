@@ -10,7 +10,7 @@
 #' @param ... Other arguments passed to function coxph(). For more details, please refer to package survival.
 #' @return an object with a class of "SPACox_NULL_Model".
 #' @examples
-#' Please check help(SPACox) for a simulated example.
+#' # Please check help(SPACox) for a simulated example.
 #' @export
 #' @import survival
 SPACox_Null_Model = function(formula,
@@ -99,6 +99,7 @@ SPACox_Null_Model = function(formula,
 #' @param missing.cutoff a numeric value (default: 0.15) to specify the cutoff of the missing rates.
 #'                       Any variant with missing rate higher than this cutoff will be excluded from the analysis.
 #' @param CovAdj.cutoff a numeric value (default: 5e-5). If the p-value is less than this cutoff, then we would use an additional technic to adjust for covariates.
+#' @param G.model a character string specifying how to model the effect of heterozygosity: "Add" (additive, default), "Dom" (dominant), or "Rec" (recessive)
 #' @details To run SPACox, the following two steps are required:
 #' \itemize{
 #'   \item Step 1. Use function SPACox_Null_Model() to fit a null Cox model.
@@ -121,7 +122,7 @@ SPACox_Null_Model = function(formula,
 #' To avoid that, we ask users to specify the IDs of both phenotype data (pIDs) and genotype data (gIDs) when fitting the null model.
 #' Users are responsible to check the consistency between pIDs and formula, and the consistency between gIDs and Geno.mtx.
 #'
-#' @return an R matrix with the following columns
+#' @return an R matrix with the following columns:
 #' \item{MAF}{Minor allele frequencies}
 #' \item{missing.rate}{Missing rates}
 #' \item{p.value.spa}{p value (recommanded) from a saddlepoint approximation.}
@@ -222,8 +223,8 @@ SPACox = function(obj.null,
 #'
 #' One-SNP-version SPACox function. This function is to facilitate users that prefer reading and analyzing genotype line-by-line.
 #' @param g a numeric genotype vector. Missing genotype should be coded as NA. Both hard-called and imputed genotype data are supported.
-#' @param others the same as function SPACox. NOTE that we do not check subject order in this one-snp-version !!!
-#' @return the same as function SPACox.
+#' @inheritParams SPACox
+#' @inherit SPACox return
 #' @export
 SPACox.one.SNP = function(g,
                           obj.null,
